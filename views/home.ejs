@@ -1,0 +1,10 @@
+<body>
+  <section class="dish-list">
+    <% for (let dish of dishes){%>
+    <p>
+      <a href="/dishes/<%=dish.id %>"><%=dish.title %></a>
+    </p>
+    <img src="<%= dish.image_url %>" alt="" />
+    <%}%>
+  </section>
+</body>

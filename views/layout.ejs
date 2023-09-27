@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <% if (userId) {%> <%= user.email %> <% }%>
+    <nav>
+      <a href="/">Home</a> <a href="/about">About</a>
+      <a href="/dishes/new">Share</a> <a href="/login">Login</a>
+
+      <% if (userId) { %>
+      <form action="/logout" method="post">
+        <input type="hidden" name="_method" value="delete" />
+        <button type="submit">Logout</button>
+      </form>
+      <% } %>
+    </nav>
+    <h1>good food hunting</h1>
+    <%- body%>
+  </body>
+</html>

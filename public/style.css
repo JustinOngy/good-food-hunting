@@ -1,0 +1,13 @@
+body {
+  background-color: lavender;
+}
+
+img {
+  width: 250px;
+  height: 250px;
+}
+
+.dish-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
