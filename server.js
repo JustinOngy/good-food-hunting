@@ -13,7 +13,7 @@ const pageRouter = require("./routes/pages_routes");
 // const ensureLoggedIn = require("../middlewares/ensure_logged_in");
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 app.set("view engine", "ejs");
 
@@ -26,7 +26,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(reqBodyMethodOverride);
 // enable session as an object in req so we can write key values in it
 app.use(
-  session({ secret: "keyboard cat", resave: false, saveUninitialized: true })
+  session({
+    secret: process.env.SESSION_SECRET || "mistyrose",
+    resave: false,
+    saveUninitialized: true,
+  })
 );
 app.use(setCurrentUser);
 app.use(requestLogger);
